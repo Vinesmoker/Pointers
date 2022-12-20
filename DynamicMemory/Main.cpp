@@ -8,6 +8,10 @@ void Print(int* arr, int n);
 int* PushBack(int* arr, int& n, int value);
 int* PushFront(int* arr, int& n, int value);
 int* Insert(int* arr, int& n, int value, int id);
+int* PopFront(int* arr, int& n);
+int* PopBack(int* arr, int& n);
+int* Erase(int* arr, int& n, int id);
+
 
 void main()
 {
@@ -19,15 +23,18 @@ void main()
 
 	int value; int id;
 	cout << "¬ведите добавл€емое значение: "; cin >> value;
-	arr = PushBack(arr, n, value);
-	Print(arr, n);
+	arr = PushBack(arr, n, value); Print(arr, n);
 	cout << "¬ведите добавл€емое значение: "; cin >> value;
-	arr = PushFront(arr, n, value);
-	Print(arr, n);
+	arr = PushFront(arr, n, value); Print(arr, n);
 	cout << "¬ведите добавл€емое значение: "; cin >> value;
 	cout << "¬ведите индекс добавл€емого значени€ в массиве: "; cin >> id;
-	arr = Insert(arr, n, value, id);
-	Print(arr, n);
+	arr = Insert(arr, n, value, id); Print(arr, n);
+	cout << "”даление первого значени€: " << endl;
+	arr = PopFront(arr, n); Print(arr, n);
+	cout << "”даление последнего значени€: " << endl;
+	arr = PopBack(arr, n); Print(arr, n);
+	cout << "¬ведите индекс добавл€емого значени€ в массиве: "; cin >> id;
+	arr = Erase(arr, n, id); Print(arr, n);
 	delete[] arr;
 }
 
@@ -99,3 +106,42 @@ int* Insert(int* arr, int& n, int value, int id)
 	arr[id] = value; n++;
 	return arr;
 }
+int* PopFront(int* arr, int& n)
+
+{
+	int* buffer = new int[n - 1];
+	for (int i = n; i > 0; i--)
+	{
+		buffer[i - 1] = arr[i];
+	}
+	delete[] arr;
+	arr = buffer; n--;
+	return arr;
+}
+int* PopBack(int* arr, int& n)
+{
+	int* buffer = new int[n - 1];
+	for (int i = n - 1; i > 0; i--)
+	{
+		buffer[i] = arr[i];
+	}
+	n--; 
+	return arr;
+}
+int* Erase(int* arr, int& n, int id)
+{
+	int* buffer = new int[n - 1];
+	for (int i = 0; i < id; i++)
+	{
+		buffer[i] = arr[i];
+	}
+	for (int i = id; i < n; i++)
+	{
+		buffer[i - 1] = arr[i];
+	}
+	delete[] arr;
+	arr = buffer;
+	n--;
+	return arr;
+}
+
