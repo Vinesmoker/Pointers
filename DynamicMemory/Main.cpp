@@ -7,6 +7,7 @@ void FillRand(int arr[], int n);
 void Print(int* arr, int n);
 int* PushBack(int* arr, int& n, int value);
 int* PushFront(int* arr, int& n, int value);
+int* Insert(int* arr, int& n, int value, int id);
 
 void main()
 {
@@ -16,12 +17,16 @@ void main()
 	int* arr = new int[n];
 	FillRand(arr, n); Print(arr, n);
 
-	int value;
+	int value; int id;
 	cout << "¬ведите добавл€емое значение: "; cin >> value;
 	arr = PushBack(arr, n, value);
 	Print(arr, n);
 	cout << "¬ведите добавл€емое значение: "; cin >> value;
 	arr = PushFront(arr, n, value);
+	Print(arr, n);
+	cout << "¬ведите добавл€емое значение: "; cin >> value;
+	cout << "¬ведите индекс добавл€емого значени€ в массиве: "; cin >> id;
+	arr = Insert(arr, n, value, id);
 	Print(arr, n);
 	delete[] arr;
 }
@@ -75,5 +80,22 @@ int* PushFront(int* arr, int& n, int value)
 	delete[] arr;
 	arr = buffer;
 	arr[0] = value; n++;
+	return arr;
+}
+int* Insert(int* arr, int& n, int value, int id)
+{
+	int* buffer = new int[n + 1];
+	buffer[id] = value;
+	for (int i = 0; i < id; i++)
+	{
+		buffer[i] = arr[i];
+	}
+	for (int i = id; i < n; i++)
+	{
+		buffer[i + 1] = arr[i];
+	}
+	delete[] arr;
+	arr = buffer;
+	arr[id] = value; n++;
 	return arr;
 }
