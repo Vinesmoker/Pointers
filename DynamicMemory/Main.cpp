@@ -33,7 +33,7 @@ void main()
 	arr = PopFront(arr, n); Print(arr, n);
 	cout << "”даление последнего значени€: " << endl;
 	arr = PopBack(arr, n); Print(arr, n);
-	cout << "¬ведите индекс добавл€емого значени€ в массиве: "; cin >> id;
+	cout << "¬ведите индекс удал€емого значени€ в массиве: "; cin >> id;
 	arr = Erase(arr, n, id); Print(arr, n);
 	delete[] arr;
 }
@@ -107,7 +107,6 @@ int* Insert(int* arr, int& n, int value, int id)
 	return arr;
 }
 int* PopFront(int* arr, int& n)
-
 {
 	int* buffer = new int[n - 1];
 	for (int i = n; i > 0; i--)
@@ -121,15 +120,18 @@ int* PopFront(int* arr, int& n)
 int* PopBack(int* arr, int& n)
 {
 	int* buffer = new int[n - 1];
-	for (int i = n - 1; i > 0; i--)
+	for (int i = n - 2; i >= 0; i--)
 	{
 		buffer[i] = arr[i];
 	}
-	n--; 
+	delete[] arr;
+	arr = buffer;
+	n--;
 	return arr;
 }
 int* Erase(int* arr, int& n, int id)
 {
+	if (id >= n)return arr;
 	int* buffer = new int[n - 1];
 	for (int i = 0; i < id; i++)
 	{
@@ -137,11 +139,10 @@ int* Erase(int* arr, int& n, int id)
 	}
 	for (int i = id; i < n; i++)
 	{
-		buffer[i - 1] = arr[i];
+		buffer[i] = arr[i + 1];
 	}
 	delete[] arr;
 	arr = buffer;
 	n--;
 	return arr;
 }
-
