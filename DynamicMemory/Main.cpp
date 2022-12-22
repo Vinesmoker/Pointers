@@ -73,7 +73,7 @@ void main()
 	arr = PushRowsBack(arr, rows, cols); Print(arr, rows, cols);
 	cout << "Добавление строки в начало: " << endl;
 	arr = PushRowsFront(arr, rows, cols); Print(arr, rows, cols);
-	cout << "Введите индекс строки для её добавления: "; cin >> id; id = id - 1;
+	cout << "Введите индекс строки для её добавления: "; cin >> id;
 	cout << "Добавление строки по индексу: " << endl;
 	arr = InsertRows(arr, rows, cols, id); Print(arr, rows, cols);
 	cout << "Удаление последней сторки: " << endl;
@@ -81,7 +81,7 @@ void main()
 	cout << "Удаление первой строки: " << endl;
 	arr = PopRowsFront(arr, rows, cols); Print(arr, rows, cols);
 	cout << "Введите индекс строки для её удаления: "; cin >> id;
-	cout << "Результат удаления строки " << id << ":" << endl; id = id - 1;
+	cout << "Результат удаления строки " << id << ":" << endl;
 	arr = Erase(arr, rows, cols, id); Print(arr, rows, cols);
 	
 	for (int i = 0; i < rows; i++) // 1.Удаляем строки двумерного массива
@@ -267,6 +267,7 @@ int** PushRowsFront(int** arr, int& rows, const int cols)
 }
 int** InsertRows(int** arr, int& rows, const int cols, int id)
 {
+	if (id >= rows)return arr;
 	int** buffer = new int* [rows + 1];
 	for (int i = 0; i < id; i++)buffer[i] = arr[i];
 	for (int i = id; i < rows; i++)buffer[i + 1] = arr[i];
@@ -278,25 +279,29 @@ int** PopRowsBack(int** arr, int& rows, const int cols)
 {
 	int** buffer = new int* [rows - 1];
 	for (int i = 0; i < rows - 1; i++)buffer[i] = arr[i];
-	buffer[rows] = new int[cols]{}; rows--;
+	delete[] arr[rows-1];
 	delete[] arr;
+	rows--;
 	return buffer;
 }
 int** PopRowsFront(int** arr, int& rows, const int cols) 
 {
 	int** buffer = new int* [rows - 1];
 	for (int i = 0; i < rows; i++)buffer[i] = arr[i + 1];
+	delete[] arr[0]; 
 	delete[] arr;
-	buffer[rows] = new int[cols] {}; rows--;
+	rows--;
 	return buffer;
 }
 int** Erase(int** arr, int& rows, const int cols, int id)
 {
+	delete[] arr[id];
 	int** buffer = new int* [rows - 1];
 	if (id >= rows)return arr;
 	for (int i = 0; i < id; i++)buffer[i] = arr[i];
 	for (int i = id; i < rows; i++)buffer[i] = arr[i + 1];
 	delete[] arr;
-	buffer[rows] = new int [cols] {}; rows--;
+	rows--;
+	//buffer[rows-1] = new int [cols] {}; 
 	return buffer;
 }
