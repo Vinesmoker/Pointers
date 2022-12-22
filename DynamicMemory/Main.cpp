@@ -81,7 +81,7 @@ void main()
 	cout << "Удаление первой строки: " << endl;
 	arr = PopRowsFront(arr, rows, cols); Print(arr, rows, cols);
 	cout << "Введите индекс строки для её удаления: "; cin >> id;
-	cout << "Результат удаления строки " << id << " :" << endl; id = id - 1;
+	cout << "Результат удаления строки " << id << ":" << endl; id = id - 1;
 	arr = Erase(arr, rows, cols, id); Print(arr, rows, cols);
 	
 	for (int i = 0; i < rows; i++) // 1.Удаляем строки двумерного массива
