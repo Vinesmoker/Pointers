@@ -7,6 +7,9 @@ using std::endl;
 #define tab "\t";
 #define delimiter "________________________________________________________________";
 
+int** Allocate(const int rows, const int cols);
+void Clear(int** arr, const int rows);
+
 void FillRand(int arr[], int n);
 void Print(int* arr, int n);
 int* PushBack(int* arr, int& n, int value);
@@ -60,12 +63,10 @@ void main()
 	int id;
 	cout << "Введите количество строк: "; cin >> rows;
 	cout << "Введите количество элементов строки: "; cin >> cols;
-	int** arr = new int* [rows]; // Создаем массив указателей;
-	for (int i = 0; i < rows; i++)
-	{
-		arr[i] = new int[cols]; // Создаем строки двумерного массива;
-	}
-	FillRand(arr, rows, cols); Print(arr, rows, cols);
+	
+	int** arr = Allocate(rows, cols);
+	
+	//FillRand(arr, rows, cols); Print(arr, rows, cols);
 
 	cout << delimiter; cout << endl;
 
@@ -84,9 +85,23 @@ void main()
 	cout << "Результат удаления строки " << id << ":" << endl;
 	arr = Erase(arr, rows, cols, id); Print(arr, rows, cols);
 	
+	Clear(arr, rows);
+}
+
+int** Allocate(const int rows, const int cols)
+{
+	int** arr = new int* [rows]; // Создаем массив указателей;
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = new int[cols]; // Создаем строки двумерного массива;
+	}
+	return arr;
+}
+void Clear(int** arr, const int rows)
+{
 	for (int i = 0; i < rows; i++) // 1.Удаляем строки двумерного массива
 	{
-		delete[] arr[i];  
+		delete[] arr[i];
 	}
 	delete[] arr; // 2. Удаляем массив указателей
 }
