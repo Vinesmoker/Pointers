@@ -240,10 +240,7 @@ void Print(int** arr, const int rows, const int cols)
 {
 	for (int i = 0; i < rows; i++)
 	{
-		for (int j = 0; j < cols; j++)
-		{
-			cout << arr[i][j] << tab;
-		}
+		for (int j = 0; j < cols; j++)cout << arr[i][j] << tab;
 		cout << endl;
 	}
 }
@@ -263,10 +260,7 @@ int** PushRowsBack(int** arr, int& rows, const int cols)
 int** PushRowsFront(int** arr, int& rows, const int cols)
 {
 	int** buffer = new int* [rows + 1];
-	for (int i = 0; i < rows; i++)
-	{
-		buffer[i + 1] = arr[i];
-	}
+	for (int i = 0; i < rows; i++)buffer[i + 1] = arr[i];
 	delete[] arr;
 	buffer[0] = new int [cols] {}; rows++;
 	return buffer;
@@ -274,14 +268,8 @@ int** PushRowsFront(int** arr, int& rows, const int cols)
 int** InsertRows(int** arr, int& rows, const int cols, int id)
 {
 	int** buffer = new int* [rows + 1];
-	for (int i = 0; i < id; i++)
-	{
-		buffer[i] = arr[i];
-	}
-	for (int i = id; i < rows; i++)
-	{
-		buffer[i + 1] = arr[i];
-	}
+	for (int i = 0; i < id; i++)buffer[i] = arr[i];
+	for (int i = id; i < rows; i++)buffer[i + 1] = arr[i];
 	delete[] arr;
 	buffer[id] = new int [cols] {}; rows++;
 	return buffer;
@@ -307,7 +295,7 @@ int** Erase(int** arr, int& rows, const int cols, int id)
 	int** buffer = new int* [rows - 1];
 	if (id >= rows)return arr;
 	for (int i = 0; i < id; i++)buffer[i] = arr[i];
-	for (int i = id; i < rows - 1; i++)buffer[i] = arr[i + 1];
+	for (int i = id; i < rows; i++)buffer[i] = arr[i + 1];
 	delete[] arr;
 	buffer[rows] = new int [cols] {}; rows--;
 	return buffer;
