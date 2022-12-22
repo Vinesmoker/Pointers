@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 using std::cout;
 using std::cin;
@@ -39,56 +39,56 @@ void main()
 	FillRand(arr, n); Print(arr, n);
 
 	int value; int id;
-	cout << "Введите добавляемое значение: "; cin >> value;
+	cout << "Р’РІРµРґРёС‚Рµ РґРѕР±Р°РІР»СЏРµРјРѕРµ Р·РЅР°С‡РµРЅРёРµ: "; cin >> value;
 	arr = PushBack(arr, n, value); Print(arr, n);
-	cout << "Введите добавляемое значение: "; cin >> value;
+	cout << "Р’РІРµРґРёС‚Рµ РґРѕР±Р°РІР»СЏРµРјРѕРµ Р·РЅР°С‡РµРЅРёРµ: "; cin >> value;
 	arr = PushFront(arr, n, value); Print(arr, n);
-	cout << "Введите добавляемое значение: "; cin >> value;
-	cout << "Введите индекс добавляемого значения в массиве: "; cin >> id; id = id - 1;
+	cout << "Р’РІРµРґРёС‚Рµ РґРѕР±Р°РІР»СЏРµРјРѕРµ Р·РЅР°С‡РµРЅРёРµ: "; cin >> value;
+	cout << "Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РјР°СЃСЃРёРІРµ: "; cin >> id; id = id - 1;
 	arr = Insert(arr, n, value, id); Print(arr, n);
-	cout << "Удаление первого значения: " << endl;
+	cout << "РЈРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ: " << endl;
 	arr = PopFront(arr, n); Print(arr, n);
-	cout << "Удаление последнего значения: " << endl;
+	cout << "РЈРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµРіРѕ Р·РЅР°С‡РµРЅРёСЏ: " << endl;
 	arr = PopBack(arr, n); Print(arr, n);
-	cout << "Введите индекс удаляемого значения в массиве: "; cin >> id; id = id - 1;
+	cout << "Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ СѓРґР°Р»СЏРµРјРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РјР°СЃСЃРёРІРµ: "; cin >> id; id = id - 1;
 	arr = Erase(arr, n, id); Print(arr, n);
 	delete[] arr;
 #endif // dynamicMemory1
 
-	int rows; // Количество строк
-	int cols; // Количество столбиков (количество элементов строки)
+	int rows; // РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
+	int cols; // РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±РёРєРѕРІ (РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂРѕРєРё)
 	int id;
-	cout << "Введите количество строк: "; cin >> rows;
-	cout << "Введите количество элементов строки: "; cin >> cols;
-	int** arr = new int* [rows]; // Создаем массив указателей;
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє: "; cin >> rows;
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂРѕРєРё: "; cin >> cols;
+	int** arr = new int* [rows]; // РЎРѕР·РґР°РµРј РјР°СЃСЃРёРІ СѓРєР°Р·Р°С‚РµР»РµР№;
 	for (int i = 0; i < rows; i++)
 	{
-		arr[i] = new int[cols]; // Создаем строки двумерного массива;
+		arr[i] = new int[cols]; // РЎРѕР·РґР°РµРј СЃС‚СЂРѕРєРё РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°;
 	}
 	FillRand(arr, rows, cols); Print(arr, rows, cols);
 
 	cout << delimiter; cout << endl;
 
-	cout << "Добавление строки в конец: " << endl;
+	cout << "Р”РѕР±Р°РІР»РµРЅРёРµ СЃС‚СЂРѕРєРё РІ РєРѕРЅРµС†: " << endl;
 	arr = PushRowsBack(arr, rows, cols); Print(arr, rows, cols);
-	cout << "Добавление строки в начало: " << endl;
+	cout << "Р”РѕР±Р°РІР»РµРЅРёРµ СЃС‚СЂРѕРєРё РІ РЅР°С‡Р°Р»Рѕ: " << endl;
 	arr = PushRowsFront(arr, rows, cols); Print(arr, rows, cols);
-	cout << "Введите индекс строки для её добавления: "; cin >> id; id = id - 1;
-	cout << "Добавление строки по индексу: " << endl;
+	cout << "Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ СЃС‚СЂРѕРєРё РґР»СЏ РµС‘ РґРѕР±Р°РІР»РµРЅРёСЏ: "; cin >> id; id = id - 1;
+	cout << "Р”РѕР±Р°РІР»РµРЅРёРµ СЃС‚СЂРѕРєРё РїРѕ РёРЅРґРµРєСЃСѓ: " << endl;
 	arr = InsertRows(arr, rows, cols, id); Print(arr, rows, cols);
-	cout << "Удаление последней сторки: " << endl;
+	cout << "РЈРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµР№ СЃС‚РѕСЂРєРё: " << endl;
 	arr = PopRowsBack(arr, rows, cols); Print(arr, rows, cols);
-	cout << "Удаление первой строки: " << endl;
+	cout << "РЈРґР°Р»РµРЅРёРµ РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРё: " << endl;
 	arr = PopRowsFront(arr, rows, cols); Print(arr, rows, cols);
-	cout << "Введите индекс строки для её удаления: "; cin >> id;
-	cout << "Результат удаления строки " << id << ":" << endl; id = id - 1;
+	cout << "Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ СЃС‚СЂРѕРєРё РґР»СЏ РµС‘ СѓРґР°Р»РµРЅРёСЏ: "; cin >> id;
+	cout << "Р РµР·СѓР»СЊС‚Р°С‚ СѓРґР°Р»РµРЅРёСЏ СЃС‚СЂРѕРєРё " << id << ":" << endl; id = id - 1;
 	arr = Erase(arr, rows, cols, id); Print(arr, rows, cols);
 	
-	for (int i = 0; i < rows; i++) // 1.Удаляем строки двумерного массива
+	for (int i = 0; i < rows; i++) // 1.РЈРґР°Р»СЏРµРј СЃС‚СЂРѕРєРё РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
 	{
 		delete[] arr[i];  
 	}
-	delete[] arr; // 2. Удаляем массив указателей
+	delete[] arr; // 2. РЈРґР°Р»СЏРµРј РјР°СЃСЃРёРІ СѓРєР°Р·Р°С‚РµР»РµР№
 }
 
 void FillRand(int arr[], int n)
@@ -96,7 +96,7 @@ void FillRand(int arr[], int n)
 	cout << typeid(arr).name() << endl;
 	for (int i = 0; i < n; i++)
 	{
-		//Обращение через арифметику указателей и оператор разыменования:
+		//РћР±СЂР°С‰РµРЅРёРµ С‡РµСЂРµР· Р°СЂРёС„РјРµС‚РёРєСѓ СѓРєР°Р·Р°С‚РµР»РµР№ Рё РѕРїРµСЂР°С‚РѕСЂ СЂР°Р·С‹РјРµРЅРѕРІР°РЅРёСЏ:
 		*(arr + i) = rand() % 100;
 	}
 }
@@ -105,28 +105,28 @@ void Print(int* arr, int n)
 	cout << typeid(arr).name() << endl;
 	for (int i = 0; i < n; i++)
 	{
-		//Через оператор индексирования
-		//[] - оператор индксирования (subscrip operator)
+		//Р§РµСЂРµР· РѕРїРµСЂР°С‚РѕСЂ РёРЅРґРµРєСЃРёСЂРѕРІР°РЅРёСЏ
+		//[] - РѕРїРµСЂР°С‚РѕСЂ РёРЅРґРєСЃРёСЂРѕРІР°РЅРёСЏ (subscrip operator)
 		cout << arr[i] << tab;
 	}
 	cout << endl;
 }
 int* PushBack(int* arr, int& n, int value)
 {
-	//1.Создаем новый массив нужного размера.
+	//1.РЎРѕР·РґР°РµРј РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ РЅСѓР¶РЅРѕРіРѕ СЂР°Р·РјРµСЂР°.
 	int* buffer = new int[n + 1];
-	//2.Копируем все содержимое массива в буфферный
+	//2.РљРѕРїРёСЂСѓРµРј РІСЃРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РјР°СЃСЃРёРІР° РІ Р±СѓС„С„РµСЂРЅС‹Р№
 	for (int i = 0; i < n; i++)
 	{
 		buffer[i] = arr[i];
 	}
-	//3.Удаляем исходный массив.
+	//3.РЈРґР°Р»СЏРµРј РёСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ.
 	delete[] arr;
-	//4.Подменяем адрес в указателе адресом нового массива.
+	//4.РџРѕРґРјРµРЅСЏРµРј Р°РґСЂРµСЃ РІ СѓРєР°Р·Р°С‚РµР»Рµ Р°РґСЂРµСЃРѕРј РЅРѕРІРѕРіРѕ РјР°СЃСЃРёРІР°.
 	arr = buffer;
-	//5. Только после этого в конец массива 'arr' можно добавить значение.
+	//5. РўРѕР»СЊРєРѕ РїРѕСЃР»Рµ СЌС‚РѕРіРѕ РІ РєРѕРЅРµС† РјР°СЃСЃРёРІР° 'arr' РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ.
 	arr[n] = value;
-	//6.Добавляем значение в конец массива
+	//6.Р”РѕР±Р°РІР»СЏРµРј Р·РЅР°С‡РµРЅРёРµ РІ РєРѕРЅРµС† РјР°СЃСЃРёРІР°
 	n++;
 	return arr;
 }
@@ -149,14 +149,14 @@ int* Insert(int* arr, int& n, int value, int id)
 	//for (int i = id; i < n; i++)buffer[i + 1] = arr[i];
 	for (int i = 0; i < n; i++)
 	{
-		//if (i < id)buffer[i] = arr[i]; else buffer[i + 1] = arr[i]; // 1 Способ
-		//(i < id ? buffer[i] : buffer[i + 1]) = arr[i]; // 2 Способ
-		buffer[i < id ? i : i + 1] = arr[i]; // 3 Способ
+		//if (i < id)buffer[i] = arr[i]; else buffer[i + 1] = arr[i]; // 1 РЎРїРѕСЃРѕР±
+		//(i < id ? buffer[i] : buffer[i + 1]) = arr[i]; // 2 РЎРїРѕСЃРѕР±
+		buffer[i < id ? i : i + 1] = arr[i]; // 3 РЎРїРѕСЃРѕР±
 	}
 	buffer[id] = value;
 	delete[] arr; arr = buffer; n++;
 	return arr;
-	/* Мой код
+	/* РњРѕР№ РєРѕРґ
 	int* buffer = new int[n + 1];
 	buffer[id] = value;
 	for (int i = 0; i < id; i++)
@@ -179,7 +179,7 @@ int* PopFront(int* arr, int& n)
 	for (int i = 0; i < n; i++)buffer[i] = arr[i + 1];
 	delete[] arr;
 	return buffer;
-	/* Мой код
+	/* РњРѕР№ РєРѕРґ
 	int* buffer = new int[n - 1];
 	for (int i = n; i > 0; i--)
 	{
@@ -195,7 +195,7 @@ int* PopBack(int* arr, int& n)
 	int* buffer = new int[--n];
 	for (int i = 0; i < n; i++)buffer[i] = arr[i];
 	delete[] arr; return buffer;
-	/* Мой код
+	/* РњРѕР№ РєРѕРґ
 	int* buffer = new int[n - 1];
 	for (int i = n - 2; i >= 0; i--)
 	{
@@ -228,9 +228,9 @@ int* Erase(int* arr, int& n, int id)
 void FillRand(int** arr, const int rows, const int cols)
 {
 	
-	for (int i = 0; i < rows; i++) // i нумерует строки
+	for (int i = 0; i < rows; i++) // i РЅСѓРјРµСЂСѓРµС‚ СЃС‚СЂРѕРєРё
 	{
-		for (int j = 0; j < cols; j++) // j нумерует элементы строки;
+		for (int j = 0; j < cols; j++) // j РЅСѓРјРµСЂСѓРµС‚ СЌР»РµРјРµРЅС‚С‹ СЃС‚СЂРѕРєРё;
 		{
 			arr[i][j] = rand() % 100;
 		}
@@ -246,7 +246,7 @@ void Print(int** arr, const int rows, const int cols)
 }
 int** PushRowsBack(int** arr, int& rows, const int cols) 
 {
-	int** buffer = new int*[rows + 1]; // Создаем буфферный массив указателей
+	int** buffer = new int*[rows + 1]; // РЎРѕР·РґР°РµРј Р±СѓС„С„РµСЂРЅС‹Р№ РјР°СЃСЃРёРІ СѓРєР°Р·Р°С‚РµР»РµР№
 	for (int i = 0; i < rows; i++)
 	{
 		buffer[i] = arr[i];
